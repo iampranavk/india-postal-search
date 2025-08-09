@@ -1,0 +1,482 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Google Sans Code, sans-serif;
+  background: #fff2d2;
+  color: #000;
+  line-height: 20px;
+}
+
+.hero-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto;
+  padding-top: 20px;
+  gap: 16px;
+}
+
+.hero-div h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  line-height: 1.3;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 0 15px;
+  word-break: break-word;
+}
+
+.hero-div p {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  line-height: 1.5;
+  text-align: center;
+  padding: 0 15px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5% 0;
+  margin-bottom: 50px;
+}
+
+.logo a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
+  color: #ff9800;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  color: #fff;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #000;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.input-btn-wrapper {
+  display: flex;
+  gap: 8px; /* space between input and button */
+  width: 100%;
+  max-width: 600px; /* max width to avoid huge input on large screens */
+  justify-content: center;
+}
+
+.input-btn-wrapper input {
+  flex: 1; /* input takes all available space */
+  min-width: 0; /* prevents overflow */
+  box-sizing: border-box;
+  padding: 10px 14px;
+}
+
+.input-btn-wrapper button {
+  flex-shrink: 0; /* button stays its natural width */
+  padding: 10px 20px;
+}
+
+.search-area input {
+  /* padding: 12px 15px; */
+  font-size: 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  font-family: Google Sans Code, sans-serif;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  min-width: 250px; /* ensures enough room for longer placeholder */
+  box-sizing: border-box; /* padding won't shrink content space */
+  padding: 10px 14px;
+}
+
+.search-area input:focus {
+  border-color: #ff9800;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
+}
+
+/* Button pizzazz */
+.search-area button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff9800, #ffb74d);
+  color: #fff;
+  font-weight: bold;
+  font-family: Google Sans Code, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.search-area button:hover {
+  background: linear-gradient(135deg, #e68900, #ffa726);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-area button:active {
+  transform: scale(0.97);
+}
+
+.search-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.search-toggle input {
+  display: none;
+}
+
+.toggle-label {
+  background-color: #ddd;
+  border-radius: 25px;
+  width: 260px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.toggle-label::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: calc(50% - 10px);
+  height: 30px;
+  background-color: #a4ff8b;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+  padding: 0 8px;
+}
+
+#searchToggle:checked + .toggle-label::before {
+  transform: translateX(100%);
+}
+
+.toggle-text {
+  flex: 1;
+  text-align: center;
+  z-index: 1;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.toggle-label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #a4ff8b;
+  border-radius: 25px;
+  transition: transform 0.3s ease;
+}
+
+#searchToggle:checked + .toggle-label::before {
+  transform: translateX(100%);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* two columns */
+  gap: 8px 16px; /* row gap and column gap */
+  margin-top: 10px;
+}
+
+.details-grid p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.active:hover {
+  color: #000;
+}
+
+.site-footer {
+  background: #000; /* black background */
+  color: #fff; /* white text */
+  padding: 20px 10px;
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .search-area > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* spacing between input and button */
+    width: 100%;
+    padding: 0px 16px;
+  }
+
+  .footer-content {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .search-area input,
+  .search-area button {
+    width: 100%;
+  }
+  .about-section {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .about-section h1 {
+    font-size: 1.5rem; /* smaller heading */
+  }
+
+  .about-section p {
+    font-size: 0.95rem; /* smaller paragraph */
+    line-height: 1.4;
+  }
+}
+
+.post-office {
+  background: #cdaef9;
+  margin: 0;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid #000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.post-office h2 {
+  line-height: 1.3;
+}
+
+.post-office h5 {
+  font-weight: 400;
+  color: #012;
+}
+
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+  margin: 30px auto;
+  max-width: 1100px;
+  width: 100%;
+  padding: 0 15px;
+}
+
+#loading {
+  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff9800;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Navbar */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #000;
+    color: #fff;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 90px;
+    padding: 10px 10px;
+    border-radius: 15px;
+  }
+
+  #results {
+    grid-template-columns: 1fr; /* one column */
+  }
+
+  .hero-div h1 {
+    font-size: 1.6rem; /* smaller font for mobile */
+    line-height: 1.3; /* extra space between lines */
+    word-break: break-word; /* force breaking long words if needed */
+    padding: 0 10px; /* add side padding so text doesn't touch edges */
+  }
+
+  .hero-div p {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: #fff;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+
+  /* Search box vertical on mobile */
+  .search-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-box input {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .search-box button {
+    width: 100%;
+    border-radius: 4px;
+  }
+}
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}

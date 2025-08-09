@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postal PIN Code Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/api.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">PIN</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <main>
+        <div class="hero-div">
+            <h1>Find Any Postal PIN Code in Seconds</h1>
+            <p>Instantly find postal details anywhere in India — whether you know the PIN code or just the Post Office
+                name. Get
+                accurate information on districts, states, circles, and regions, all powered by official India Post
+                data.</p>
+        </div>
+        <div class="search-area">
+            <div class="search-toggle">
+                <input type="checkbox" id="searchToggle">
+                <label for="searchToggle" class="toggle-label">
+                    <span class="toggle-text pin">PIN Code</span>
+                    <span class="toggle-text po">Post Office</span>
+                </label>
+            </div>
+            <div class="input-btn-wrapper">
+                <input type="text" id="searchInput" placeholder="Enter PIN Code" maxlength="6">
+                <button id="searchBtn">Search</button>
+            </div>
+        </div>
+        <div id="loading" style="display: none; text-align:center; margin-top:20px;">
+            <div class="spinner"></div>
+        </div>
+        <div id="results"></div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2025 Postal PIN Code Finder — A demo project using the India Post API</p>
+            <p>Built with using HTML, CSS, and JavaScript</p>
+        </div>
+    </footer>
+</body>
+
+</html>
