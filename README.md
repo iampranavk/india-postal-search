@@ -16,7 +16,7 @@ A simple web app to search Indian postal PIN codes and post office details using
 
 ## Demo
 
-Try the app live: *(Add your deployed link here if available)*
+Try the app live: https://iampranavk.github.io/india-postal-search/
 
 ---
 
